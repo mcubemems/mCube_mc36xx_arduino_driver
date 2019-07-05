@@ -17,4 +17,4 @@
 *.RTF	 diff=astextplain
 
 * linguist-vendored
-*.cpp linguist-vendored=true
+*.cpp linguist-vendored=false

@@ -47,12 +47,13 @@ uint8_t MC36XX::readRegister8(uint8_t reg)
     uint8_t value;
 
 #ifdef MC36XX_CFG_BUS_I2C
-    Wire.beginTransmission(MC36XX_CFG_I2C_ADDR);
-    Wire.write(reg);
+    //Wire.beginTransmission(MC36XX_CFG_I2C_ADDR);
+    //Wire.write(reg);
     //endTransmission but keep the connection active
-    Wire.endTransmission(false);
+    //Wire.endTransmission(false);
     //Once done, bus is released by default
-    Wire.requestFrom(MC36XX_CFG_I2C_ADDR, 1);
+    //Wire.requestFrom(MC36XX_CFG_I2C_ADDR, 1);
+    Wire.requestFrom(MC36XX_CFG_I2C_ADDR, 1, reg, 1, true);
     value = Wire.read();
 #else  //Reads an 8-bit register with the SPI port.
     //Set active-low CS low to start the SPI cycle
